@@ -3,13 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { TextboxComponent } from './textbox/textbox.component';
 import { SigninComponent } from './signin/signin.component';
 import { IsAuthenticated } from './app-auth';
-import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
   { path: '',
     children: [
       { 
         path: '', 
+        canActivate: [IsAuthenticated],
         component: SigninComponent, 
       },
       { 

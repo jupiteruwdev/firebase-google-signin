@@ -10,8 +10,9 @@ export class IsAuthenticated implements CanActivate {
   constructor(private router: Router, private authService: AuthService) {}
 
   canActivate() {
-    if (this.authService.isLoggedin()) 
+    if (this.authService.isLoggedin()) {
       return true
+    }
     
     this.router.navigateByUrl('/')
     return false
